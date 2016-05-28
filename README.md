@@ -1,2 +1,1 @@
-# image-recognition
-Basic Image Recognition
+# Basic Image Recognition
