@@ -23,6 +23,23 @@ np.seterr(over='ignore')
 # plt.imshow(imageArray)
 # plt.show()
 
+
+# fiquei a 8 <====== HERE
+
+def createImages():
+
+    numberArrayImages = open('numArrayImages.txt', 'a')
+    numbersRange = range(0, 10)
+    versionsRange = range(1, 10)
+
+    for num in numbersRange:
+        for ver in versionsRange:
+
+            print str(num) + '.' + str(ver)
+
+
+
+
 # this function will change the values of the array
 
 def threshhold(imageArrayArg):
@@ -83,8 +100,7 @@ imageArray1 = np.array(image1)
 image2 = Image.open('images/img19.png')
 imageArray2 = np.array(image2)
 
-threshhold(imageArray1)
-#threshhold(imageArray2)
+'''threshhold(imageArray1)
 
 # Position of the matplot windows
 
@@ -95,4 +111,4 @@ aux2 = plt.subplot2grid((8, 6), (1, 3), rowspan = 10, colspan = 3)
 aux1.imshow(imageArray1)
 aux2.imshow(imageArray2)
 
-plt.show()
+plt.show()'''
