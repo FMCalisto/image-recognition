@@ -77,13 +77,14 @@ def threshhold(imageArrayArg):
 
 
 
-image1 = Image.open('images/img2.png')
+image1 = Image.open('images/img19.png')
 imageArray1 = np.array(image1)
 
-image2 = Image.open('images/img17.png')
+image2 = Image.open('images/img19.png')
 imageArray2 = np.array(image2)
 
-threshhold(imageArray2)
+threshhold(imageArray1)
+#threshhold(imageArray2)
 
 # Position of the matplot windows
 
