@@ -2,13 +2,21 @@
 # import Image
 
 from PIL import Image
-import numpy as np
 
-img = Image.open('images/img11.png')
+import numpy as np
+import matplotlib.pyplot as plt
+
+img = Image.open('images/img1.png')
 
 # an array that corresponds into 'img' image
 # and the image array will come out in a 3 dim array
 
-imgAsArray = np.asarray(img)
+# Array => (R, G, B, Alpha)
 
-print imgAsArray
+imageArray = np.asarray(img)
+
+# print imageArray
+
+plt.imshow(imageArray)
+plt.show()
+
