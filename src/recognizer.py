@@ -1,3 +1,7 @@
+# Author: Francisco Maria Calisto
+# E-Mail: email@franciscocalisto.me
+# GitHub: https://github.com/FMCalisto
+
 # if you'r on a 32 bit OS:
 # import Image
 
