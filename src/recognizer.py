@@ -42,8 +42,6 @@ def createImages():
             print str(num) + '.' + str(ver)
 
 
-
-
 # this function will change the values of the array
 
 def threshhold(imageArrayArg):
@@ -95,7 +93,6 @@ def threshhold(imageArrayArg):
                 imagePix[3] = 255
 
     return newArray
-
 
 
 image1 = Image.open('images/img19.png')
