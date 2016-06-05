@@ -10,34 +10,21 @@ from PIL import Image
 import numpy as np
 import matplotlib.pyplot as plt
 import time
+from collections import Counter
 
 np.seterr(over='ignore')
-
-# img = Image.open('images/img2.png')
-
-# an array that corresponds into 'img' image
-# and the image array will come out in a 3 dim array
-
-# Array => (R, G, B, Alpha)
-
-# imageArray = np.asarray(img)
-
-# print imageArray
-
-# plt.imshow(imageArray)
-# plt.show()
 
 
 def createImages():
 
     numberArrayImages = open('numArrayImages.txt', 'a')
-    numbersRange = range(1, 2) # <-- FIXME
-    versionsRange = range(1, 10) # <-- FIXME
+    numbersRange = range(0,10)
+    versionsRange = range(1,10)
 
     for num in numbersRange:
         for ver in versionsRange:
 
-            print str(num) + '.' + str(ver)
+            #print str(num) + '.' + str(ver)
 
             imgFilePath = 'images/numbers/' + str(num) + '.' + str(ver) + '.png'
             image = Image.open(imgFilePath)
@@ -99,3 +86,67 @@ def threshhold(imageArrayArg):
                 imagePix[3] = 255
 
     return newArray
+
+
+def getNum(filePath):
+    matchedArray = []
+    loadImages = open('numArrayImages.txt', 'r').read()
+    loadImages = loadImages.split('\n')
+
+    image = Image.open(filePath)
+    imageArray = np.array(image)
+    imageArrayToList = imageArray.tolist()
+
+    imageArrayToString = str(imageArrayToList)
+
+    for image in loadImages:
+        if len(image) > 3:
+            splitImage = image.split('::')
+            currentNum = splitImage[0]
+            currentArray = splitImage[1]
+
+            imagePix = currentArray.split('],')
+            imagePixArrayToString = imageArrayToString.split('],')
+
+            i = 0
+
+            while i < len(imagePix):
+                if imagePix[i] == imagePixArrayToString[i]:
+                    matchedArray.append(int (currentNum))
+
+                i += 1
+
+    print(matchedArray)
+
+    i = Counter(matchedArray)
+
+    print(i)
+
+    graphX = []
+    graphY = []
+
+    for infoPix in i:
+        print infoPix
+        graphX.append(infoPix)
+        print i[infoPix]
+        graphY.append(i[infoPix])
+
+    fig = plt.figure()
+    aux1 = plt.subplot2grid((4,4), (0,0), rowspan = 1, colspan = 4)
+    aux2 = plt.subplot2grid((4,4), (1,0), rowspan = 3, colspan = 4)
+
+    aux1.imshow(imageArray)
+    aux2.bar(graphX, graphY, align = 'center')
+    plt.ylim(100)
+
+    iLoc = plt.MaxNLocator(12)
+
+    aux2.xaxis.set_major_locator(iLoc)
+    
+    plt.show()
+
+getNum('images/test.png')
+
+
+
+    
