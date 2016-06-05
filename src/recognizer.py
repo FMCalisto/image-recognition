@@ -56,7 +56,7 @@ def threshhold(imageArrayArg):
 
             imagePixSize = len(imagePix[:3])
             imagePixApply = lambda x, y: x + y
-            imagePixReduce = reduce(lambda x, y: x + y, imagePix[:3])
+            imagePixReduce = reduce(imagePixApply, imagePix[:3])
             imagePixDiv = imagePixReduce / imagePixSize
 
             avgNum = imagePixDiv
@@ -65,7 +65,7 @@ def threshhold(imageArrayArg):
 
     balanceArraySize = len(balanceArray)
     balanceArrayApply = lambda x, y: x + y
-    balanceArrayReduce = reduce(lambda x, y: x + y, balanceArray)
+    balanceArrayReduce = reduce(balanceArrayApply, balanceArray)
     balanceArrayDiv = balanceArrayReduce / balanceArraySize
 
     balance = balanceArrayDiv
@@ -75,7 +75,7 @@ def threshhold(imageArrayArg):
 
             imagePixSize = len(imagePix[:3])
             imagePixApply = lambda x, y: x + y
-            imagePixReduce = reduce(lambda x, y: x + y, imagePix[:3])
+            imagePixReduce = reduce(imagePixApply, imagePix[:3])
             imagePixDiv = imagePixReduce / imagePixSize
 
             avgNum = imagePixDiv
@@ -101,7 +101,7 @@ imageArray1 = np.array(image1)
 image2 = Image.open('images/img19.png')
 imageArray2 = np.array(image2)
 
-'''threshhold(imageArray1)
+threshhold(imageArray1)
 
 # Position of the matplot windows
 
@@ -112,4 +112,4 @@ aux2 = plt.subplot2grid((8, 6), (1, 3), rowspan = 10, colspan = 3)
 aux1.imshow(imageArray1)
 aux2.imshow(imageArray2)
 
-plt.show()'''
+plt.show()
