@@ -99,23 +99,3 @@ def threshhold(imageArrayArg):
                 imagePix[3] = 255
 
     return newArray
-
-
-image1 = Image.open('images/img19.png')
-imageArray1 = np.array(image1)
-
-image2 = Image.open('images/img19.png')
-imageArray2 = np.array(image2)
-
-'''threshhold(imageArray1)
-
-# Position of the matplot windows
-
-fig = plt.figure()
-aux1 = plt.subplot2grid((8, 6), (1, 0), rowspan = 10, colspan = 3)
-aux2 = plt.subplot2grid((8, 6), (1, 3), rowspan = 10, colspan = 3)
-
-aux1.imshow(imageArray1)
-aux2.imshow(imageArray2)
-
-plt.show()'''
