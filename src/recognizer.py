@@ -28,18 +28,24 @@ np.seterr(over='ignore')
 # plt.show()
 
 
-# fiquei a 8 <====== HERE
-
 def createImages():
 
     numberArrayImages = open('numArrayImages.txt', 'a')
-    numbersRange = range(0, 10)
-    versionsRange = range(1, 10)
+    numbersRange = range(1, 2) # <-- FIXME
+    versionsRange = range(1, 10) # <-- FIXME
 
     for num in numbersRange:
         for ver in versionsRange:
 
             print str(num) + '.' + str(ver)
+
+            imgFilePath = 'images/numbers/' + str(num) + '.' + str(ver) + '.png'
+            image = Image.open(imgFilePath)
+            imageArray = np.array(image)
+            imageArrayToList = str(imageArray.tolist())
+
+            lineToWrite = str(num) + '::' + imageArrayToList + '\n'
+            numberArrayImages.write(lineToWrite)
 
 
 # this function will change the values of the array
@@ -101,7 +107,7 @@ imageArray1 = np.array(image1)
 image2 = Image.open('images/img19.png')
 imageArray2 = np.array(image2)
 
-threshhold(imageArray1)
+'''threshhold(imageArray1)
 
 # Position of the matplot windows
 
@@ -112,4 +118,4 @@ aux2 = plt.subplot2grid((8, 6), (1, 3), rowspan = 10, colspan = 3)
 aux1.imshow(imageArray1)
 aux2.imshow(imageArray2)
 
-plt.show()
+plt.show()'''
