@@ -11,3 +11,7 @@ The more complex the image, the more complex the code will need to become.
 When it comes to letters and characters, it is relatively simplistic, however.
 
 ## How to run?
+
+```
+python recognizer.py
+```
